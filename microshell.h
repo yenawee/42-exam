@@ -25,7 +25,6 @@ typedef struct pipelines
 	t_token	*tokens;
 	int		token_size;
 	t_command *commands;
-	int	seperate_type;
 	struct	pipelines	*next;
 } t_pipelines;
 

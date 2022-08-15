@@ -18,8 +18,8 @@ typedef struct token
 enum type
 {
 	T_WORD = 1,
-	T_BREAK,
-	T_PIPE
+	T_PIPE,
+	T_BREAK
 } type;
 
 int		ft_strlen(char *s);

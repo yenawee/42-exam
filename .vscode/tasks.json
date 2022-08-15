@@ -1,0 +1,10 @@
+{
+    "tasks": [
+      {
+        "type": "shell",
+        "label": "make debug file",
+        "command": "cc *.c -o microshell -g3"
+      }
+    ],
+    "version": "2.0.0"
+  }

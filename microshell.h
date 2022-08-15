@@ -7,26 +7,13 @@
 
 typedef struct token
 {
-	int		type;
-	char	*str;
+	int		type; //pipe 인지, break 인지
+	char	**str;
+	int		size;
 	struct token	*next;
 	struct token	*prev;
 } t_token;
 
-typedef struct command
-{
-	t_token *tokens;
-	int	token_size;
-	struct command	*next;
-} t_command;
-
-typedef struct pipelines
-{
-	t_token	*tokens;
-	int		token_size;
-	t_command *commands;
-	struct	pipelines	*next;
-} t_pipelines;
 
 enum type
 {
@@ -42,6 +29,8 @@ void	err_fatal();
 void	err_execve(char *str);
 void	err_cd_arg();
 void	err_cd(char *str);
+
+int parse(t_token **tokens, char *arg);
 
 
 

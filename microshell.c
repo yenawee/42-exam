@@ -1,20 +1,26 @@
 #include "microshell.h"
 
+int _token(t_token **tokens)
+{
+    while ((*tokens && (*tokens)->prev))
+        *tokens = (*tokens)->prev;
+    return 0;
+}
+
+
 int main(int argc, char **argv, char **envp)
 {
     t_token *tokens;
-
-    int i = 1;
-    while (argv[i])
-        parse(&tokens, argv[i++]);
+    t_token *tmp;
 
     
-    while (tokens)
+    int i = 1;
+    _token(&tokens);
     {
-        for (int i = 0; i < tokens->size -1; i++)
+        for (int i = 0; i < tokens->size - 1; i++)
             printf("%s\n", tokens->str[i]);
         printf("type %d\n", tokens->type);
-        printf("token\n");
+        printf("-------------------------\n");
         tokens = tokens->next;
     }
 

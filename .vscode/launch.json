@@ -8,12 +8,10 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug",
-            "stopAtEntry": false,
             "program": "${workspaceFolder}/microshell",
-            "args": [],
+            "args": ["bin/echo", "hi", ";", "echo", "good"],
             "cwd": "${workspaceFolder}",
-            "externalConsole": false,
-            "MIMode": "lldb",
+            "console": "integratedTerminal",
             "preLaunchTask": "make debug file"
         }
     ]

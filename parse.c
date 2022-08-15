@@ -23,6 +23,8 @@ int add_arg(t_token *tokens, char *arg)
 int ft_lst_addback(t_token **tokens, char *arg)
 {
     t_token *new = malloc(sizeof(t_token));
+
+
     if (!new)
         err_fatal();
     new->type = T_WORD;
@@ -30,16 +32,12 @@ int ft_lst_addback(t_token **tokens, char *arg)
     new->str = NULL;
     new->next= NULL;
     new->prev = NULL;
-    if (*tokens == NULL)
-        *tokens = new;
-    else
+    if (*tokens)
     {
-        t_token *cur = *tokens;
-        while (cur->next)
-            cur = cur->next;
-        cur->next = new;
-        new->prev = cur;
+        (*tokens)->next = new;
+        new->prev = *tokens;
     }
+    *tokens = new;
     return (add_arg(*tokens, arg));
 }
 
@@ -51,7 +49,7 @@ int parse(t_token **tokens, char *arg)
     int is_pipe = (strcmp(arg, "|") == 0);
 
     if (is_break && !(*tokens))
-        return (EXIT_SUCCESS); // 맨 첨에 암것도 없이 break 만 나올때
+        return (EXIT_SUCCESS);
     if (!is_break && (!(*tokens) || (*tokens)->type > 1))
         return (ft_lst_addback(tokens, arg)); 
     if (is_break)

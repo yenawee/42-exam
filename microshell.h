@@ -5,9 +5,13 @@
 #include <string.h>
 #include <sys/wait.h>
 
+#define STDIN 0
+#define STDOUT 1
+#define STDERR 2
+
 typedef struct token
 {
-	int		type; //pipe 인지, break 인지
+	int		type;
 	char	**str;
 	int		size;
 	int		fd[2];
@@ -31,8 +35,8 @@ void	err_execve(char *str);
 void	err_cd_arg();
 void	err_cd(char *str);
 
-int parse(t_token **tokens, char *arg);
-int	excute(t_token *tokens, char **envp);
+int 	parse(t_token **tokens, char *arg);
+int		excute(t_token *tokens, char **envp);
 
 
 

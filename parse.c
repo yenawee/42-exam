@@ -12,13 +12,14 @@ int add_arg(t_token *tokens, char *arg)
 		tmp[i] = tokens->str[i];
 		i++;
 	}
+	if (tokens->str)
+		free(tokens->str);
 	tokens->str = tmp;
 	tokens->str[i++] = ft_strdup(arg);
 	tokens->str[i] = NULL;
 	tokens->size++;
 	return (EXIT_SUCCESS);
 }
-
 
 int ft_lst_addback(t_token **tokens, char *arg)
 {

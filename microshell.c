@@ -33,7 +33,7 @@ int main(int argc, char **argv, char **envp)
 	while (tmp)
 	{
 		tmp = tokens->next;
-		for (int k = 0; k < tokens->size - 1; k++)
+		for (int k = 0; k < tokens->size; k++)
 			free(tokens->str[k]);
 		free(tokens->str);
 		free(tokens);

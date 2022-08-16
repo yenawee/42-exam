@@ -3,6 +3,7 @@
 int add_arg(t_token *tokens, char *arg)
 {
 	char    **tmp;
+	tokens->size++;
 	tmp = malloc(sizeof(char *) * (tokens->size + 1));
 	if (!tmp)
 		err_fatal();
@@ -17,7 +18,6 @@ int add_arg(t_token *tokens, char *arg)
 	tokens->str = tmp;
 	tokens->str[i++] = ft_strdup(arg);
 	tokens->str[i] = NULL;
-	tokens->size++;
 	return (EXIT_SUCCESS);
 }
 
@@ -29,7 +29,7 @@ int ft_lst_addback(t_token **tokens, char *arg)
 	if (!new)
 		err_fatal();
 	new->type = T_WORD;
-	new->size = 1;
+	new->size = 0;
 	new->str = NULL;
 	new->next= NULL;
 	new->prev = NULL;

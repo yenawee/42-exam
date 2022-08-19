@@ -14,16 +14,16 @@ void	err_execve(char *str)
 	exit(EXIT_FAILURE);
 }
 
-void	err_cd_arg()
+int	err_cd_arg()
 {
 	write(STDERR, "error: cd: bad arguments\n", ft_strlen("error: cd: bad arguments\n"));
-	exit(EXIT_FAILURE);
+	return (EXIT_FAILURE);
 }
 
-void	err_cd(char *str)
+int	err_cd(char *str)
 {
 	write(STDERR, "error: cd: cannot change directory to ", ft_strlen("error: cd: cannot change directory to "));
 	write(STDERR, str, ft_strlen(str));
 	write(STDERR, "\n", 1);
-	exit(EXIT_FAILURE);
+	return (EXIT_FAILURE);
 }

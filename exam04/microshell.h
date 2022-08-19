@@ -32,8 +32,8 @@ char	*ft_strdup(char *s);
 
 void	err_fatal();
 void	err_execve(char *str);
-void	err_cd_arg();
-void	err_cd(char *str);
+int		err_cd_arg(void);
+int		err_cd(char *str);
 
 int 	parse(t_token **tokens, char *arg);
 int		excute(t_token *tokens, char **envp);

@@ -35,9 +35,9 @@ int	_excute(t_token *tokens, char **envp)
 int	ft_cd(t_token *tokens)
 {
 	if (tokens->size < 2)
-		err_cd_arg();
+		return (err_cd_arg());
 	if (chdir(tokens->str[1]) == -1)
-		err_cd(tokens->str[1]);
+		return (err_cd(tokens->str[1]));
 	return (EXIT_SUCCESS);
 }
 
